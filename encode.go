@@ -80,12 +80,12 @@ func (tokens *tokenData) startEnvelope() {
 	e := xml.StartElement{
 		Name: xml.Name{
 			Space: "",
-			Local: "soap:Envelope",
+			Local: "SOAP-ENV:Envelope",
 		},
 		Attr: []xml.Attr{
 			{Name: xml.Name{Space: "", Local: "xmlns:xsi"}, Value: "http://www.w3.org/2001/XMLSchema-instance"},
 			{Name: xml.Name{Space: "", Local: "xmlns:xsd"}, Value: "http://www.w3.org/2001/XMLSchema"},
-			{Name: xml.Name{Space: "", Local: "xmlns:soap"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
+			{Name: xml.Name{Space: "", Local: "xmlns:SOAP-ENV"}, Value: "http://schemas.xmlsoap.org/soap/envelope/"},
 		},
 	}
 
@@ -96,7 +96,7 @@ func (tokens *tokenData) endEnvelope() {
 	e := xml.EndElement{
 		Name: xml.Name{
 			Space: "",
-			Local: "soap:Envelope",
+			Local: "SOAP-ENV:Envelope",
 		},
 	}
 
@@ -159,7 +159,7 @@ func (tokens *tokenData) startBody(m, n string) error {
 	b := xml.StartElement{
 		Name: xml.Name{
 			Space: "",
-			Local: "soap:Body",
+			Local: "SOAP-ENV:Body",
 		},
 	}
 
@@ -187,7 +187,7 @@ func (tokens *tokenData) endBody(m string) {
 	b := xml.EndElement{
 		Name: xml.Name{
 			Space: "",
-			Local: "soap:Body",
+			Local: "SOAP-ENV:Body",
 		},
 	}
 
