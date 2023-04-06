@@ -101,10 +101,8 @@ func (c *Client) SetWSDL(wsdl string) {
 }
 
 func (c *Client) getLocation() string {
-	location := c.Definitions.Services[0].Ports[0].SoapAddresses[0].Location
-	if c.ForceHTTPS {
-		location = makeHTTPS(location)
-	}
+	u, _ := url.Parse(c.wsdl)
+	location := u.Scheme + "://" + u.Host + u.Path
 	return location
 }
 
